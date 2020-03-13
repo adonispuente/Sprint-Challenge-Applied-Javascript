@@ -4,8 +4,39 @@
 // Stduy the response data you get back, closely.
 // You will be creating a component for each 'article' in the list.
 // This won't be as easy as just iterating over an array though.
+
+axios
+  .get("https://lambda-times-backend.herokuapp.com/articles")
+  .then(response => {
+    console.log(response.data.articles);
+  });
+
+function makeCard() {
+  const div = document.createElement("div");
+  div.classList.add("card");
+
+  const div2 = document.createElement("div");
+  div2.classList.add("headLine");
+  div.appendChild(div2);
+
+  const div3 = document.createElement("div");
+  div3.classList.add("author");
+  div.appendChild(div3);
+
+  const div4 = document.createElement("div");
+  div4.classList.add("img-container");
+  div3.appendChild(div4);
+
+  const img = document.createElement("img");
+  div4.appendChild(img);
+
+  const newspan = document.createElement("span");
+  div3.appendChild(newspan);
+
+  return div;
+}
+
 // Create a function that will programmatically create the following DOM component:
-//
 // <div class="card">
 //   <div class="headline">{Headline of article}</div>
 //   <div class="author">
